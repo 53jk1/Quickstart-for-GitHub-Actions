@@ -1,11 +1,6 @@
 name: Build
 run-name: Deploy to ${{ inputs.environment }} environment on ${{ inputs.region }} region using ${{ inputs.profile }} profile and ${{ inputs.bucket }} bucket name and ${{ inputs.folder }} folder name and ${{ inputs.distribution-id }} distribution id
-on:
-  push:
-    branches:
-      - master
-    tags:
-      - v*
+on: [push]
 
 jobs:
   build:
