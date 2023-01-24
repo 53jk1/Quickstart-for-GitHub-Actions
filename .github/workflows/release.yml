@@ -4,8 +4,6 @@ on: [push]
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
     steps:
       - uses: actions/checkout@v2
         name: Set up Python 3.8
@@ -29,9 +27,9 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         env:
-          RELEASE_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+          RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: build.py
           draft: true
           prerelease: true
-          token: ${{ secrets.RELEASE_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
