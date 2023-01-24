@@ -1,6 +1,9 @@
 name: Release
 run-name: Release
-on: [push]
+on:
+  push:
+    tags:
+      - 'v*.*.*'
 jobs:
   release:
     runs-on: ubuntu-latest
