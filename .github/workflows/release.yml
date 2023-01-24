@@ -1,6 +1,8 @@
 name: Release
 run-name: Release
 on: [push]
+tags:
+  - v*
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -26,8 +28,6 @@ jobs:
           path: build.py
       - name: Release
         uses: softprops/action-gh-release@v1
-        env:
-          RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: build.py
           draft: true
