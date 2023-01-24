@@ -11,7 +11,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v2
         with:
-        python-version: 3.8
+          python-version: 3.8
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -22,5 +22,12 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
-      - name: build
-        path: build.py
+          name: build
+          path: build.py
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build.py
+          draft: true
+          prerelease: true
+          token: ${{ secrets.GITHUB_TOKEN }}
