@@ -26,7 +26,6 @@ jobs:
           path: build.py
       - name: Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
         with:
           files: build.py
           draft: true
