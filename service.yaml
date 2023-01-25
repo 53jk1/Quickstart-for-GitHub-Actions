@@ -1,0 +1,83 @@
+name: quickstart
+
+profiles:
+  stable:
+    endpoint: /hello/
+    image: python:3.8
+    command: python -m http.server 8080
+    env:
+      - PORT=8080
+    ports:
+        - 8080
+    healthcheck:
+        path: /hello/
+        port: 8080
+        interval: 10s
+        timeout: 5s
+        retries: 3
+        start_period: 0s
+
+    dev:
+        endpoint: /hello/
+        image: python:3.8
+        command: python -m http.server 8080
+        env:
+            - PORT=8080
+        ports:
+            - 8080
+        healthcheck:
+            path: /hello/
+            port: 8080
+            interval: 10s
+            timeout: 5s
+            retries: 3
+            start_period: 0s
+
+    test:
+        endpoint: /hello/
+        image: python:3.8
+        command: python -m http.server 8080
+        env:
+            - PORT=8080
+        ports:
+            - 8080
+        healthcheck:
+            path: /hello/
+            port: 8080
+            interval: 10s
+            timeout: 5s
+            retries: 3
+            start_period: 0s
+
+    prod:
+        endpoint: /hello/
+        image: python:3.8
+        command: python -m http.server 8080
+        env:
+            - PORT=8080
+        ports:
+            - 8080
+        healthcheck:
+            path: /hello/
+            port: 8080
+            interval: 10s
+            timeout: 5s
+            retries: 3
+            start_period: 0s
+
+    local:
+        endpoint: /hello/
+        image: python:3.8
+        command: python -m http.server 8080
+        env:
+            - PORT=8080
+        ports:
+            - 8080
+        healthcheck:
+            path: /hello/
+            port: 8080
+            interval: 10s
+            timeout: 5s
+            retries: 3
+            start_period: 0s
+
