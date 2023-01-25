@@ -1,0 +1,13 @@
+networks:
+    default:
+        name: my-network
+services:
+    web:
+        build: .
+        command: python app.py
+        ports:
+            - "5000:5000"
+        networks:
+            - default
+        volumes:
+            - .:/code
