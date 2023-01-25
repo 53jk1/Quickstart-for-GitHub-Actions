@@ -24,18 +24,4 @@ jobs:
         with:
           name: build
           path: build.py
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: build.py
-          draft: true
-          prerelease: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: ${{ github.ref }}
-          name: ${{ github.ref }}
-          body_path: ${{ github.workflow }}-CHANGELOG.txt
-          body: |
-            Release ${{ github.ref }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
