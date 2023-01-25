@@ -16,14 +16,14 @@ RUN pip install --upgrade ipykernel
 RUN pip install --upgrade jupyter_contrib_nbextensions
 RUN pip install --upgrade jupyter_nbextensions_configurator
 RUN pip install --upgrade jupyterthemes
-WORKDIR /service
-COPY . /service
 RUN jupyter contrib nbextension install --user
 RUN jupyter nbextensions_configurator enable --user
 RUN jupyter nbextension enable --py widgetsnbextension
 RUN jupyter nbextension enable --py --sys-prefix jupyter_nbextensions_configurator
 RUN jupyter nbextension enable --py --sys-prefix jupyter_contrib_nbextensions
 RUN jt -t chesterish -f fira -fs 95 -nf ptsans -nfs 115 -N -kl -cursw 3 -cursc r -cellw 88% -T
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
 COPY . ./
 EXPOSE 5000
-ENTRYPOINT ["jupyter", "notebook", "python3", "app.py"]
+ENTRYPOINT ["python", "app.py"]

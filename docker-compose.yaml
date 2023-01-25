@@ -3,7 +3,7 @@ networks:
         name: my-network
 services:
     web:
-        build: .
+        image: 53jk1/pythonftw:0.0.3
         command: python app.py
         ports:
             - "5000:5000"
